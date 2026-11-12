@@ -1,29 +1,22 @@
 
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Prince Omukama Noel">
-  <meta name="description" content="EngiLink AI - Global Engineering Specialist Network connecting clients with verified mechanical, electrical, software, and civil engineers.">
   <meta name="google-site-verification" content="3tnwrVSai9Bf6vK3lCsq0T48Xs1h2ENGOa6Dm3FZsqg" />
   <title>EngiLink AI — Global Engineering Specialist Network</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body { background: #0f172a; color: #f8fafc; line-height: 1.6; }
     header { background: #1e293b; padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; }
-    .logo { font-size: 22px; font-weight: 800; color: #38bdf8; letter-spacing: 0.5px; }
+    .logo { font-size: 22px; font-weight: 800; color: #38bdf8; }
     .logo span { color: #ffffff; }
     .hero { text-align: center; padding: 70px 5% 50px; max-width: 850px; margin: 0 auto; }
-    .hero h1 { font-size: 40px; font-weight: 800; margin-bottom: 16px; color: #ffffff; }
+    .hero h1 { font-size: 38px; font-weight: 800; margin-bottom: 16px; color: #ffffff; }
     .hero p { font-size: 18px; color: #94a3b8; margin-bottom: 30px; }
-    .btn-primary { background: #2563eb; color: #ffffff; border: none; padding: 14px 28px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; transition: 0.2s; }
+    .btn-primary { background: #2563eb; color: #ffffff; border: none; padding: 14px 28px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; }
     .btn-primary:hover { background: #1d4ed8; }
     .directory { padding: 40px 5% 80px; max-width: 1200px; margin: 0 auto; }
     .directory h2 { font-size: 26px; margin-bottom: 24px; color: #e2e8f0; }
@@ -40,30 +33,57 @@
     .btn-connect:hover { background: #2563eb; }
     footer { background: #090d16; text-align: center; padding: 28px 5%; border-top: 1px solid #1e293b; color: #64748b; font-size: 14px; }
     footer strong { color: #94a3b8; }
+
+    #aiModal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 23, 42, 0.82);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    #aiModal.active {
+      display: flex;
+    }
   </style>
+  <script>
+    function openAIMode() {
+      const modal = document.getElementById('aiModal');
+      if (modal) modal.classList.add('active');
+    }
+
+    function closeAIMode() {
+      const modal = document.getElementById('aiModal');
+      if (modal) modal.classList.remove('active');
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+    }
+  </script>
 </head>
 <body>
 
   <header>
     <div class="logo">EngiLink <span>AI</span></div>
-    <button onclick="openAIMode()" class="btn-primary" style="padding: 10px 18px; font-size: 14px;">Ask AI Matcher</button>
+    <button type="button" onclick="openAIMode()" class="btn-primary" style="padding: 10px 18px; font-size: 14px;">Ask AI Matcher</button>
   </header>
 
   <section class="hero">
     <h1>Global Engineering Specialist Network</h1>
     <p>Describe your technical challenge and let EngiLink AI connect you with verified specialists across robotics, renewable energy, AI software, and structural engineering.</p>
-    <button onclick="openAIMode()" class="btn-primary">Ask AI Matcher</button>
+    <button type="button" onclick="openAIMode()" class="btn-primary">Ask AI Matcher</button>
   </section>
 
   <section class="directory">
     <h2>Verified Engineering Specialists</h2>
     <div class="grid">
-      
       <div class="card">
         <div>
           <h3>Carlos Mendez</h3>
           <div class="role">Mechanical &amp; Robotics Engineer</div>
-          <div class="meta">📍 Monterrey, Mexico • ⭐ 4.9 • 11 yrs exp</div>
+          <div class="meta">Monterrey, Mexico • 4.9 ★ • 11 yrs exp</div>
           <div class="skills">
             <span class="tag">CAD Modeling</span>
             <span class="tag">Robotics</span>
@@ -72,7 +92,7 @@
         </div>
         <div class="card-footer">
           <span class="rate">$85 / hr</span>
-          <button onclick="openAIMode()" class="btn-connect">Connect</button>
+          <button type="button" onclick="openAIMode()" class="btn-connect">Connect</button>
         </div>
       </div>
 
@@ -80,7 +100,7 @@
         <div>
           <h3>Sofia Lindqvist</h3>
           <div class="role">Renewable Energy &amp; Electrical Engineer</div>
-          <div class="meta">📍 Stockholm, Sweden • ⭐ 5.0 • 9 yrs exp</div>
+          <div class="meta">Stockholm, Sweden • 5.0 ★ • 9 yrs exp</div>
           <div class="skills">
             <span class="tag">Solar Microgrids</span>
             <span class="tag">Power Systems</span>
@@ -89,7 +109,7 @@
         </div>
         <div class="card-footer">
           <span class="rate">$95 / hr</span>
-          <button onclick="openAIMode()" class="btn-connect">Connect</button>
+          <button type="button" onclick="openAIMode()" class="btn-connect">Connect</button>
         </div>
       </div>
 
@@ -97,7 +117,7 @@
         <div>
           <h3>David Chen</h3>
           <div class="role">AI &amp; Full-Stack Software Engineer</div>
-          <div class="meta">📍 Singapore • ⭐ 4.9 • 8 yrs exp</div>
+          <div class="meta">Singapore • 4.9 ★ • 8 yrs exp</div>
           <div class="skills">
             <span class="tag">Python / AI</span>
             <span class="tag">ML Pipelines</span>
@@ -106,7 +126,7 @@
         </div>
         <div class="card-footer">
           <span class="rate">$90 / hr</span>
-          <button onclick="openAIMode()" class="btn-connect">Connect</button>
+          <button type="button" onclick="openAIMode()" class="btn-connect">Connect</button>
         </div>
       </div>
 
@@ -114,7 +134,7 @@
         <div>
           <h3>Amina Mwangi</h3>
           <div class="role">Civil &amp; Structural Engineer</div>
-          <div class="meta">📍 Dar es Salaam, Tanzania • ⭐ 5.0 • 12 yrs exp</div>
+          <div class="meta">Dar es Salaam, Tanzania • 5.0 ★ • 12 yrs exp</div>
           <div class="skills">
             <span class="tag">Structural Design</span>
             <span class="tag">Commercial Builds</span>
@@ -123,10 +143,9 @@
         </div>
         <div class="card-footer">
           <span class="rate">$80 / hr</span>
-          <button onclick="openAIMode()" class="btn-connect">Connect</button>
+          <button type="button" onclick="openAIMode()" class="btn-connect">Connect</button>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -135,15 +154,14 @@
   </footer>
 
   <!-- Floating AI Mode Button -->
-  <button onclick="openAIMode()" style="position:fixed; bottom:24px; right:24px; background:#2563eb; color:white; border:none; padding:14px 22px; border-radius:50px; font-size:16px; font-weight:bold; cursor:pointer; box-shadow:0 4px 14px rgba(37,99,235,0.4); z-index:999;">
+  <button type="button" onclick="openAIMode()" style="position:fixed; bottom:24px; right:24px; background:#2563eb; color:white; border:none; padding:14px 22px; border-radius:50px; font-size:16px; font-weight:bold; cursor:pointer; box-shadow:0 4px 14px rgba(37,99,235,0.4); z-index:998;">
     🎙️ Talk to EngiLink AI
   </button>
 
   <!-- Expressive AI Chat & Voice Modal -->
-  <div id="aiModal" style="display:none; position:fixed; inset:0; background:rgba(15,23,42,0.8); z-index:1000; align-items:center; justify-content:center; padding:16px;">
+  <div id="aiModal">
     <div style="background:#ffffff; width:100%; max-width:480px; border-radius:16px; overflow:hidden; box-shadow:0 20px 25px -5px rgba(0,0,0,0.3); color:#1e293b;">
       
-      <!-- Header with Live Emotion Indicator -->
       <div style="background:#1e293b; color:white; padding:16px 20px; display:flex; justify-content:space-between; align-items:center;">
         <div style="display:flex; align-items:center; gap:10px;">
           <span id="aiAvatar" style="font-size:28px;">😊</span>
@@ -152,23 +170,21 @@
             <div id="aiMoodLabel" style="font-size:12px; color:#94a3b8;">Mood: Warm &amp; Ready</div>
           </div>
         </div>
-        <button onclick="closeAIMode()" style="background:none; border:none; color:#94a3b8; font-size:22px; cursor:pointer;">✕</button>
+        <button type="button" onclick="closeAIMode()" style="background:none; border:none; color:#94a3b8; font-size:22px; cursor:pointer;">✕</button>
       </div>
 
-      <!-- Chat History -->
       <div id="aiChatBox" style="height:320px; overflow-y:auto; padding:16px; background:#f8fafc; display:flex; flex-direction:column; gap:12px;">
         <div style="background:#e2e8f0; color:#1e293b; padding:12px 14px; border-radius:12px; max-width:85%; align-self:flex-start; line-height:1.4; font-size:14px;">
-          Hey there! 👋 I'm your EngiLink engineering partner. Whether you're stressed over a broken circuit, excited about a new build, or just want to chat—talk or type to me!
+          Hey there! I'm your EngiLink engineering partner. Whether you're stressed over a broken circuit, excited about a new build, or just want to chat—talk or type to me!
         </div>
       </div>
 
-      <!-- Input & Speech Controls -->
       <div style="padding:12px; background:white; border-top:1px solid #e2e8f0; display:flex; gap:8px; align-items:center;">
-        <button id="micBtn" onclick="toggleVoiceInput()" title="Speak" style="background:#ef4444; color:white; border:none; width:44px; height:44px; border-radius:50%; font-size:18px; cursor:pointer; flex-shrink:0;">
+        <button type="button" id="micBtn" onclick="toggleVoiceInput()" title="Speak" style="background:#ef4444; color:white; border:none; width:44px; height:44px; border-radius:50%; font-size:18px; cursor:pointer; flex-shrink:0;">
           🎤
         </button>
-        <input id="aiUserInput" type="text" placeholder="Ask anything or talk engineering..." onkeypress="if(event.key==='Enter') handleUserMessage()" style="flex:1; padding:12px; border:1px solid #cbd5e1; border-radius:10px; font-size:14px; outline:none; color:#1e293b;">
-        <button onclick="handleUserMessage()" style="background:#2563eb; color:white; border:none; padding:12px 16px; border-radius:10px; font-weight:bold; cursor:pointer;">
+        <input id="aiUserInput" type="text" placeholder="Ask anything or talk engineering..." onkeydown="if(event.key==='Enter'){event.preventDefault(); handleUserMessage();}" style="flex:1; padding:12px; border:1px solid #cbd5e1; border-radius:10px; font-size:14px; outline:none; color:#1e293b;">
+        <button type="button" onclick="handleUserMessage()" style="background:#2563eb; color:white; border:none; padding:12px 16px; border-radius:10px; font-weight:bold; cursor:pointer;">
           Send
         </button>
       </div>
@@ -177,26 +193,13 @@
   </div>
 
   <script>
-    const aiModal = document.getElementById('aiModal');
-    const aiChatBox = document.getElementById('aiChatBox');
-    const aiUserInput = document.getElementById('aiUserInput');
-    const aiAvatar = document.getElementById('aiAvatar');
-    const aiMoodLabel = document.getElementById('aiMoodLabel');
-    const micBtn = document.getElementById('micBtn');
-
-    function openAIMode() {
-      aiModal.style.display = 'flex';
-    }
-
-    function closeAIMode() {
-      aiModal.style.display = 'none';
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-      }
-    }
-
     function generateEmotionalResponse(text) {
       const lower = text.toLowerCase();
+      let emotion = { emoji: "😊", label: "Warm & Friendly", pitch: 1.05, rate: 1.0 };
+      let reply = "";
+
+      if (lower.match(/help|broken|fail|error|stuck|hard|stress|urgent|problem/)) {
+        emotion = { emoji: "😟", label: "Empathetic & Supportive", pitch: 0.95, rate: 0.95 };
 
 
 
@@ -223,15 +226,3 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-</body>
-</html>
