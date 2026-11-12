@@ -116,6 +116,251 @@ document.getElementById("problemInput").addEventListener("keypress", function(e)
     if (e.key === "Enter") findSpecialist();
 });
 </script>
+<!-- STEP 2: Floating AI Mode Button -->
+<button onclick="openAIMode()" style="position:fixed; bottom:24px; right:24px; background:#2563eb; color:white; border:none; padding:14px 22px; border-radius:50px; font-size:16px; font-weight:bold; cursor:pointer; box-shadow:0 4px 14px rgba(37,99,235,0.4); z-index:999;">
+    🎙️ Talk to EngiLink AI
+</button>
+<!-- STEP 3: Expressive AI Chat & Voice Modal -->
+<div id="aiModal" style="display:none; position:fixed; inset:0; background:rgba(15,23,42,0.75); z-index:1000; align-items:center; justify-content:center; padding:16px;">
+<div style="background:#ffffff; width:100%; max-width:480px; border-radius:16px; overflow:hidden; box-shadow:0 20px 25px -5px rgba(0,0,0,0.2); font-family:sans-serif;">
+    
+    <!-- Top Header: Shows AI Avatar Emoji & Current Emotion -->
+    <div style="background:#1e293b; color:white; padding:16px 20px; display:flex; justify-content:space-between; align-items:center;">
+    <div style="display:flex; align-items:center; gap:10px;">
+        <span id="aiAvatar" style="font-size:28px;">😊</span>
+        <div>
+        <div style="font-weight:bold; font-size:16px;">EngiLink Companion</div>
+        <div id="aiMoodLabel" style="font-size:12px; color:#94a3b8;">Mood: Warm & Ready</div>
+        </div>
+    </div>
+    <button onclick="closeAIMode()" style="background:none; border:none; color:#94a3b8; font-size:22px; cursor:pointer;">✕</button>
+    </div>
+
+    <!-- Middle Area: Scrollable Chat Messages -->
+    <div id="aiChatBox" style="height:320px; overflow-y:auto; padding:16px; background:#f8fafc; display:flex; flex-direction:column; gap:12px;">
+    <div style="background:#e2e8f0; color:#1e293b; padding:12px 14px; border-radius:12px; max-width:85%; align-self:flex-start; line-height:1.4;">
+        Hey there! 👋 I'm your EngiLink engineering partner. Whether you're stressed over a broken circuit, excited about a new build, or just want to chat—talk or type to me!
+    </div>
+    </div>
+
+    <!-- Bottom Area: Mic Button, Text Input & Send Button -->
+    <div style="padding:12px; background:white; border-top:1px solid #e2e8f0; display:flex; gap:8px; align-items:center;">
+    <button id="micBtn" onclick="toggleVoiceInput()" title="Speak" style="background:#ef4444; color:white; border:none; width:44px; height:44px; border-radius:50%; font-size:18px; cursor:pointer; flex-shrink:0;">
+        🎤
+    /button>
+    input id="aiUserInput" type="text" placeholder="Ask anything or talk engineering..." onkeypress="if(event.key==='Enter') handleUserMessage()" style="flex:1; padding:12px; border:1px solid #cbd5e1; border-radius:10px; font-size:14px; outline:none;">
+    <button onclick="handleUserMessage()" style="background:#2563eb; color:white; border:none; padding:12px 16px; border-radius:10px; font-weight:bold; cursor:pointer;">
+        Send
+    </button>
+    </div>
+
+    </div>
+</div>
+<!-- STEP 4: JavaScript Logic for Emotions, Text & Speech -->
+<script>
+  // 1. Grab HTML elements by their IDs
+  const aiModal = document.getElementById('aiModal');
+  const aiChatBox = document.getElementById('aiChatBox');
+  const aiUserInput = document.getElementById('aiUserInput');
+  const aiAvatar = document.getElementById('aiAvatar');
+  const aiMoodLabel = document.getElementById('aiMoodLabel');
+  const micBtn = document.getElementById('micBtn');
+
+  // 2. Open and Close the AI Window
+function openAIMode() {
+    aiModal.style.display = 'flex';
+  }
+
+function closeAIMode() {
+    aiModal.style.display = 'none';
+    window.speechSynthesis.cancel(); // Stops voice if window closes
+  }
+
+  // 3. Emotion & Engineering Response Brain
+function generateEmotionalResponse(text) {
+    const lower = text.toLowerCase();
+    let emotion = { emoji: "😊", label: "Warm & Friendly", pitch: 1.05, rate: 1.0 };
+    let reply = "";
+
+    // Check user's emotional mood first
+    if (lower.match(/help|broken|fail|error|stuck|hard|stress|urgent|problem/)) {
+    emotion = { emoji: "😟", label: "Empathetic & Supportive", pitch: 0.95, rate: 0.95 };
+    reply = "Take a deep breath—I hear how frustrating that is, and we're going to figure it out together! ";
+    } else if (lower.match(/awesome|great|build|idea|new|love|excited|amazing|rocket|robot|ai/)) {
+    emotion = { emoji: "🤩", label: "Excited & Inspired", pitch: 1.2, rate: 1.08 };
+    reply = "Oh, I love the energy behind that! Building something from scratch is the best part of engineering. ";
+    } else if (lower.match(/hi|hello|hey|how are you|who are you/)) {
+    emotion = { emoji: "😄", label: "Cheerful & Welcoming", pitch: 1.1, rate: 1.02 };
+    reply = "Hey! I'm doing fantastic today, especially now that we get to talk tech and ideas! ";
+    } else if (lower.match(/sad|tired|bored|give up/)) {
+    emotion = { emoji: "🤗", label: "Caring & Encouraging", pitch: 0.92, rate: 0.92 };
+    reply = "Hey, even the greatest engineers hit rough days. Take a quick break if you need one—I'm right here with you. ";
+    } else {
+    emotion = { emoji: "🤔", label: "Thoughtful & Curious", pitch: 1.0, rate: 1.0 };
+    reply = "That's a really interesting question! Let's think through it step by step. ";
+    }
+
+    // Check engineering topic and match a specialist
+    if (lower.match(/solar|power|battery|grid|electric|circuit/)) {
+    reply += "For electrical or renewable power designs, checking load balance and voltage drop first saves huge headaches. Would you like me to connect you with Eng. Sofia Lindqvist for a deep dive?";
+    } else if (lower.match(/robot|cad|machine|3d|mechanical|motor|engine/)) {
+    reply += "In mechanical and robotics builds, tolerance checks and torque calculations make all the difference. Eng. Carlos Mendez on our network is a wizard at this!";
+    } else if (lower.match(/code|software|app|web|ai|python|data/)) {
+    reply += "Clean architecture and modular testing will keep your software scalable. You could also team up with Eng. David Chen if you want extra hands on the code!";
+    } else if (lower.match(/building|bridge|house|foundation|civil|concrete|structure/)) {
+    reply += "Safety factors and soil load testing always come first in structural work. Eng. Amina Mwangi here in Dar es Salaam specializes in exactly that!";
+    } else {
+    reply += "Tell me a bit more about what you're working on—or even if it's outside engineering, I'm always happy to listen and brainstorm with you!";
+    }
+
+    return { emotion, reply };
+  }
+
+  // 4. Add Chat Bubbles to the Screen
+function appendMessage(sender, text) {
+    const msg = document.createElement('div');
+    msg.style.padding = '12px 14px';
+    msg.style.borderRadius = '12px';
+    msg.style.maxWidth = '85%';
+    msg.style.lineHeight = '1.4';
+    msg.style.fontSize = '14px';
+
+    if (sender === 'user') {
+    msg.style.background = '#2563eb';
+    msg.style.color = 'white';
+    msg.style.alignSelf = 'flex-end';
+    } else {
+    msg.style.background = '#e2e8f0';
+    msg.style.color = '#1e293b';
+    msg.style.alignSelf = 'flex-start';
+    }
+
+    msg.textContent = text;
+    aiChatBox.appendChild(msg);
+    aiChatBox.scrollTop = aiChatBox.scrollHeight;
+  }
+
+  // 5. Make the AI Speak Out Loud
+function speakText(text, pitch, rate) {
+    if (!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.pitch = pitch;
+    utterance.rate = rate;
+    window.speechSynthesis.speak(utterance);
+  }
+
+  // 6. Process User Message (Text or Voice)
+function handleUserMessage() {
+    const text = aiUserInput.value.trim();
+    if (!text) return;
+
+    appendMessage('user', text);
+    aiUserInput.value = '';
+
+    const { emotion, reply } = generateEmotionalResponse(text);
+    aiAvatar.textContent = emotion.emoji;
+    aiMoodLabel.textContent = `Mood: ${emotion.label}`;
+
+    setTimeout(() => {
+    appendMessage('ai', reply);
+    speakText(reply, emotion.pitch, emotion.rate);
+    }, 400);
+  }
+
+  // 7. Microphone Speech-to-Text Setup
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+let recognition = null;
+let isListening = false;
+
+if (SpeechRecognition) {
+    recognition = new SpeechRecognition();
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+
+    recognition.onstart = () => {
+    isListening = true;
+      micBtn.style.background = '#16a34a'; // Turns green while listening
+    aiMoodLabel.textContent = 'Listening to your voice...';
+    };
+
+    recognition.onresult = (event) => {
+      // Fixed index [0][0] to grab the exact spoken sentence
+    const transcript = event.results[0][0].transcript;
+    aiUserInput.value = transcript;
+    handleUserMessage();
+    };
+
+    recognition.onend = () => {
+    isListening = false;
+      micBtn.style.background = '#ef4444'; // Turns back to red when done
+    };
+}
+
+function toggleVoiceInput() {
+    if (!recognition) {
+    alert("Voice input isn't supported in this browser—try Chrome or Safari, or type your message!");
+    return;
+    }
+    if (isListening) {
+    recognition.stop();
+    } else {
+    recognition.start();
+    }
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>
