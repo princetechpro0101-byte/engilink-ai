@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EngiLink AI — Global Engineering Specialist Network</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background: #0f172a; color: #f8fafc; line-height: 1.6; }
+        header { background: #1e293b; padding: 1.2rem 2rem; border-bottom: 1px solid #334155; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.4rem; font-weight: 800; color: #38bdf8; }
+        .logo span { color: #f8fafc; }
+        .hero { max-width: 850px; margin: 3rem auto 2rem; padding: 0 1.5rem; text-align: center; }
+        .hero h1 { font-size: 2.4rem; margin-bottom: 0.8rem; }
+        .hero p { color: #94a3b8; font-size: 1.1rem; margin-bottom: 2rem; }
+        .ai-box { background: #1e293b; border: 1px solid #38bdf8; border-radius: 12px; padding: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .input-group { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+        input[type="text"] { flex: 1; min-width: 260px; padding: 0.9rem 1.2rem; border-radius: 8px; border: 1px solid #475569; background: #0f172a; color: #fff; font-size: 1rem; }
+        input[type="text"]:focus { outline: none; border-color: #38bdf8; }
+        button { background: #38bdf8; color: #0f172a; font-weight: 700; border: none; padding: 0.9rem 1.6rem; border-radius: 8px; cursor: pointer; font-size: 1rem; transition: 0.2s; }
+        button:hover { background: #7dd3fc; }
+        #ai-response { margin-top: 1.2rem; padding: 1rem; background: #0f172a; border-left: 4px solid #38bdf8; border-radius: 6px; text-align: left; display: none; color: #e2e8f0; }
+        .container { max-width: 1100px; margin: 2rem auto 4rem; padding: 0 1.5rem; }
+        .section-title { font-size: 1.3rem; margin-bottom: 1.2rem; color: #cbd5e1; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 1.5rem; }
+        .card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-4px); border-color: #38bdf8; }
+        .badge { display: inline-block; background: rgba(56, 189, 248, 0.15); color: #38bdf8; padding: 0.25rem 0.7rem; border-radius: 999px; font-size: 0.82rem; font-weight: 600; margin-bottom: 0.8rem; }
+        .card h3 { font-size: 1.2rem; margin-bottom: 0.3rem; }
+        .meta { font-size: 0.88rem; color: #94a3b8; margin-bottom: 0.9rem; }
+        .bio { font-size: 0.95rem; color: #cbd5e1; margin-bottom: 1.2rem; }
+        .card-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #334155; padding-top: 1rem; }
+        .rate { font-weight: 700; color: #4ade80; font-size: 1.05rem; }
+        .hire-btn { background: transparent; border: 1px solid #38bdf8; color: #38bdf8; padding: 0.45rem 1rem; font-size: 0.9rem; }
+        .hire-btn:hover { background: #38bdf8; color: #0f172a; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Engi<span>Link AI</span></div>
+    <div style="color: #94a3b8; font-size: 0.9rem;">Global Engineering Network</div>
+</header>
+
+<section class="hero">
+    <h1>Find Any Engineering Specialist Worldwide</h1>
+    <p>Describe your technical challenge or project. Our AI analyzes your needs and connects you directly with verified engineers.</p>
+
+    <div class="ai-box">
+        <div class="input-group">
+            <input type="text" id="problemInput" placeholder="e.g. I need a solar microgrid for a commercial building or a Python web app..." />
+            <button onclick="findSpecialist()">Ask AI Matcher</button>
+        </div>
+        <div id="ai-response"></div>
+    </div>
+</section>
+
+<section class="container">
+    <h2 class="section-title" id="resultsHeading">Available Global Specialists</h2>
+    <div class="grid" id="engineersGrid">
+        {% for eng in engineers %}
+        <div class="card">
+            <div>
+                <span class="badge">{{ eng.specialty }}</span>
+                <h3>{{ eng.name }}</h3>
+                <div class="meta">📍 {{ eng.location }} • ⭐ {{ eng.rating }} • {{ eng.experience }}</div>
+                <p class="bio">{{ eng.bio }}</p>
+            </div>
+            <div class="card-footer">
+                <span class="rate">{{ eng.rate }}</span>
+                <button class="hire-btn" onclick="alert('Consultation request sent to {{ eng.name }}!')">Connect</button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<script>
+async function findSpecialist() {
+    const query = document.getElementById("problemInput").value;
+    const responseBox = document.getElementById("ai-response");
+    const grid = document.getElementById("engineersGrid");
+    const heading = document.getElementById("resultsHeading");
+
+    responseBox.style.display = "block";
+    responseBox.innerHTML = "Analyzing project requirements...";
+
+    const res = await fetch("/api/match", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query })
+    });
+    const data = await res.json();
+
+    responseBox.innerHTML = data.ai_summary;
+    heading.innerText = `Recommended Specialists (${data.matches.length})`;
+
+    grid.innerHTML = data.matches.map(eng => `
+        <div class="card">
+            <div>
+                <span class="badge">${eng.specialty}</span>
+                <h3>${eng.name}</h3>
+                <div class="meta">📍 ${eng.location} • ⭐ ${eng.rating} • ${eng.experience}</div>
+                <p class="bio">${eng.bio}</p>
+            </div>
+            <div class="card-footer">
+                <span class="rate">${eng.rate}</span>
+                <button class="hire-btn" onclick="alert('Consultation request sent to ${eng.name}!')">Connect</button>
+            </div>
+        </div>
+    `).join("");
+}
+
+document.getElementById("problemInput").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") findSpecialist();
+});
+</script>
+
+</body>
+</html>
