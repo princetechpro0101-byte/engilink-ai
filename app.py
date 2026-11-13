@@ -6,11 +6,10 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
-# Configure Upload Folder for Customer Problem Clips
 UPLOAD_FOLDER = os.path.join('static', 'uploads')
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['MAX_CONTENT_LENGTH'] = 25 * 1024 * 1024  # 25 MB max upload size
+app.config['MAX_CONTENT_LENGTH'] = 25 * 1024 * 1024
 
 DB_NAME = 'engilink.db'
 
@@ -21,7 +20,6 @@ def get_db_connection():
 
 def init_db():
     conn = get_db_connection()
-    # Table for Real Registered Engineers
     conn.execute('''
         CREATE TABLE IF NOT EXISTS engineers (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -35,7 +33,6 @@ def init_db():
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     ''')
-    # Table for Customer Engineering Problems & Clips
     conn.execute('''
         CREATE TABLE IF NOT EXISTS problems (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -51,7 +48,6 @@ def init_db():
     conn.commit()
     conn.close()
 
-# Initialize database tables on startup
 init_db()
 
 @app.route('/')
