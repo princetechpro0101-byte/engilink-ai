@@ -1,139 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="author" content="Prince Omukama Noel">
-<meta name="description" content="EngiLink AI — Verified Global Engineering Marketplace connecting clients with vetted mechanical, electrical, software, and civil engineers.">
-<meta name="google-site-verification" content="3tnwrVSai9Bf6vK3lCsq0T48Xs1h2ENGOa6Dm3FZsqg" />
-<title>EngiLink AI — Verified Global Engineering Marketplace</title>
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "EngiLink AI",
-    "url": "https://engi-link-pro.onrender.com",
-    "author": {
-    "@type": "Person",
-    "name": "Prince Omukama Noel",
-    "alternateName": "Prince Tech Pro 0101",
-    "sameAs": [
-        "https://github.com/princetechpro0101-byte"
-      ]
-    }
-  }
-</script>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Prince Omukama Noel">
+  <meta name="google-site-verification" content="3tnwrVSai9Bf6vK3lCsq0T48Xs1h2ENGOa6Dm3FZsqg" />
+  <title>EngiLink AI — Verified Global Engineering Marketplace</title>
+  <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body { background: #f1f5f9; color: #0f172a; line-height: 1.5; }
-
-    /* Top Marketplace Bar */
-    .navbar { background: #131921; color: #ffffff; padding: 12px 4%; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; position: sticky; top: 0; z-index: 900; }
-    .brand { display: flex; align-items: center; gap: 8px; text-decoration: none; color: #ffffff; font-size: 22px; font-weight: 800; }
-    .brand-badge { background: #2563eb; color: #ffffff; font-size: 11px; padding: 2px 7px; border-radius: 4px; font-weight: 700; text-transform: uppercase; }
-
-    /* Search Bar */
-    .search-form { flex: 1; min-width: 250px; max-width: 600px; display: flex; border-radius: 8px; overflow: hidden; background: #ffffff; }
-    .search-form select { background: #e2e8f0; border: none; padding: 10px; font-size: 13px; color: #334155; font-weight: 600; outline: none; }
-    .search-form input { flex: 1; border: none; padding: 10px 12px; font-size: 14px; color: #0f172a; outline: none; }
-    .search-form button { background: #f59e0b; border: none; padding: 0 16px; cursor: pointer; font-weight: 700; color: #0f172a; }
-
-    /* Nav Actions */
-    .nav-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-    .nav-link { background: none; border: 1px solid #475569; color: #f8fafc; padding: 8px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: none; }
-    .nav-cta { background: #2563eb; border: none; color: #ffffff; padding: 9px 14px; border-radius: 6px; font-size: 13px; font-weight: 700; cursor: pointer; }
-
-    /* Category Tabs */
-    .subnav { background: #232f3e; padding: 8px 4%; display: flex; gap: 14px; overflow-x: auto; font-size: 13px; }
-    .subnav a { color: #e2e8f0; text-decoration: none; white-space: nowrap; padding: 4px 10px; border-radius: 4px; }
-    .subnav a:hover, .subnav a.active { background: #374151; color: #ffffff; font-weight: 700; }
-
-    /* Trust Strip */
-    .trust-bar { background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 12px 4%; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 12px; font-size: 13px; color: #334155; font-weight: 600; }
-
-    /* Hero */
-    .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: #ffffff; padding: 48px 5%; text-align: center; }
-    .hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 12px; }
-    .hero p { font-size: 16px; color: #cbd5e1; max-width: 680px; margin: 0 auto 24px; }
+    .navbar { background: #131921; color: #fff; padding: 12px 4%; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .brand { color: #fff; font-size: 22px; font-weight: 800; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .badge { background: #2563eb; font-size: 11px; padding: 2px 7px; border-radius: 4px; text-transform: uppercase; }
+    .search-form { flex: 1; min-width: 240px; max-width: 560px; display: flex; border-radius: 6px; overflow: hidden; background: #fff; }
+    .search-form select, .search-form input { border: none; padding: 9px 10px; font-size: 13px; outline: none; }
+    .search-form input { flex: 1; }
+    .search-form button { background: #f59e0b; border: none; padding: 0 14px; font-weight: 700; cursor: pointer; }
+    .nav-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .btn-dark { background: none; border: 1px solid #475569; color: #fff; padding: 7px 12px; border-radius: 6px; font-size: 13px; cursor: pointer; text-decoration: none; }
+    .btn-blue { background: #2563eb; border: none; color: #fff; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 700; cursor: pointer; }
+    .btn-amber { background: #f59e0b; border: none; color: #0f172a; padding: 10px 18px; border-radius: 6px; font-size: 14px; font-weight: 800; cursor: pointer; }
+    .subnav { background: #232f3e; padding: 8px 4%; display: flex; gap: 12px; overflow-x: auto; font-size: 13px; }
+    .subnav a { color: #e2e8f0; text-decoration: none; padding: 4px 10px; border-radius: 4px; white-space: nowrap; }
+    .subnav a.active, .subnav a:hover { background: #374151; color: #fff; font-weight: 700; }
+    .hero { background: linear-gradient(135deg, #0f172a, #1e3a8a); color: #fff; padding: 44px 5%; text-align: center; }
+    .hero h1 { font-size: 30px; margin-bottom: 10px; }
+    .hero p { color: #cbd5e1; max-width: 650px; margin: 0 auto 20px; font-size: 15px; }
     .hero-btns { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
-    .btn-amber { background: #f59e0b; color: #0f172a; border: none; padding: 12px 22px; border-radius: 8px; font-size: 15px; font-weight: 800; cursor: pointer; }
-    .btn-outline-light { background: rgba(255,255,255,0.12); color: #ffffff; border: 1px solid rgba(255,255,255,0.35); padding: 12px 22px; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; }
-
-    /* Sections & Cards */
-    .container { max-width: 1200px; margin: 30px auto; padding: 0 4%; }
-    .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; flex-wrap: wrap; gap: 10px; }
-    .section-header h2 { font-size: 20px; font-weight: 800; color: #0f172a; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px; }
-    .card { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; }
-    .profile-top { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-    .avatar { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; background: #2563eb; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; flex-shrink: 0; }
-    .verified-badge { display: inline-block; background: #dcfce7; color: #166534; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 99px; margin-top: 2px; }
-    .role-label { font-size: 13px; color: #2563eb; font-weight: 700; margin-bottom: 6px; }
-    .meta-row { font-size: 13px; color: #475569; margin-bottom: 10px; }
-    .skills-wrap { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
-    .skill-pill { background: #f1f5f9; color: #334155; font-size: 12px; padding: 3px 8px; border-radius: 5px; border: 1px solid #e2e8f0; }
-    .card-bottom { border-top: 1px solid #e2e8f0; padding-top: 12px; display: flex; justify-content: space-between; align-items: center; }
-    .price { font-size: 17px; font-weight: 800; color: #0f172a; }
-    .price span { font-size: 12px; font-weight: 500; color: #64748b; }
-    .btn-hire { background: #f59e0b; color: #0f172a; text-decoration: none; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 700; }
-    .clip-preview { width: 100%; border-radius: 8px; max-height: 200px; object-fit: cover; margin: 10px 0; background: #0f172a; }
-    .empty-state { background: #ffffff; border: 1px dashed #94a3b8; border-radius: 10px; padding: 30px; text-align: center; color: #475569; margin-bottom: 40px; }
-
-    /* Modals */
-    .modal-overlay { display: none; pointer-events: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.78); z-index: 9999; align-items: flex-start; justify-content: center; padding: 28px 16px; overflow-y: auto; }
-    .modal-overlay.active { display: flex; pointer-events: auto; }
-    .modal-card { background: #ffffff; width: 100%; max-width: 460px; border-radius: 12px; padding: 24px; box-shadow: 0 20px 25px rgba(0,0,0,0.25); margin-bottom: 30px; }
-    .modal-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; }
-    .close-x { background: none; border: none; font-size: 22px; cursor: pointer; color: #64748b; }
-    .field { margin-bottom: 12px; }
-    .field label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 4px; color: #1e293b; }
-    .field input, .field select, .field textarea { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; }
-
-    /* Footer */
-    footer { background: #131921; color: #cbd5e1; padding: 36px 5% 24px; margin-top: 50px; font-size: 13px; }
-    .footer-grid { max-width: 1200px; margin: 0 auto 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-    .footer-col h4 { color: #ffffff; font-size: 15px; margin-bottom: 8px; }
-    .footer-col p, .footer-col a { color: #94a3b8; text-decoration: none; display: block; margin-bottom: 6px; }
-    .footer-bottom { border-top: 1px solid #232f3e; padding-top: 18px; text-align: center; color: #94a3b8; }
-</style>
-<script>
-    function openModal(id) {
-    const el = document.getElementById(id);
-    if (el) el.classList.add('active');
-    }
-    function closeModal(id) {
-    const el = document.getElementById(id);
-    if (el) el.classList.remove('active');
-    }
-</script>
+    .container { max-width: 1180px; margin: 28px auto; padding: 0 4%; }
+    .sec-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; margin-bottom: 16px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(275px, 1fr)); gap: 18px; margin-bottom: 36px; }
+    .card { background: #fff; border: 1px solid #cbd5e1; border-radius: 10px; padding: 18px; display: flex; flex-direction: column; justify-content: space-between; }
+    .prof-top { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; background: #2563eb; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; }
+    .v-badge { background: #dcfce7; color: #166534; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 99px; display: inline-block; }
+    .role { color: #2563eb; font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+    .meta { font-size: 12px; color: #475569; margin-bottom: 10px; }
+    .skills { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
+    .pill { background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 11px; padding: 2px 7px; border-radius: 4px; }
+    .card-foot { border-top: 1px solid #e2e8f0; padding-top: 10px; display: flex; justify-content: space-between; align-items: center; }
+    .hire-btn { background: #f59e0b; color: #0f172a; text-decoration: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 700; }
+    .clip { width: 100%; border-radius: 8px; max-height: 190px; object-fit: cover; margin: 8px 0; background: #000; }
+    .empty { background: #fff; border: 1px dashed #94a3b8; border-radius: 10px; padding: 28px; text-align: center; color: #475569; margin-bottom: 36px; }
+    .modal { display: none; pointer-events: none; position: fixed; inset: 0; background: rgba(15,23,42,0.8); z-index: 9999; align-items: flex-start; justify-content: center; padding: 24px 14px; overflow-y: auto; }
+    .modal.active { display: flex; pointer-events: auto; }
+    .modal-box { background: #fff; width: 100%; max-width: 440px; border-radius: 12px; padding: 20px; margin-bottom: 24px; }
+    .modal-top { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px; margin-bottom: 14px; }
+    .field { margin-bottom: 11px; }
+    .field label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 4px; }
+    .field input, .field select, .field textarea { width: 100%; padding: 9px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; }
+    footer { background: #131921; color: #94a3b8; text-align: center; padding: 28px 5%; font-size: 13px; margin-top: 40px; }
+    footer a { color: #38bdf8; }
+  </style>
+  <script>
+    function openModal(id) { var e = document.getElementById(id); if (e) e.classList.add('active'); }
+    function closeModal(id) { var e = document.getElementById(id); if (e) e.classList.remove('active'); }
+  </script>
 </head>
 <body>
-
-<header class="navbar">
-    <a href="/" class="brand">EngiLink <span class="brand-badge">Verified</span></a>
-
+  <header class="navbar">
+    <a href="/" class="brand">EngiLink <span class="badge">Verified</span></a>
     <form class="search-form" action="/" method="GET">
-    <select name="category">
-        <option value="All" {% if category_filter == 'All' %}selected{% endif %}>All Disciplines</option>
-        <option value="Electrical & Renewable Energy" {% if category_filter == 'Electrical & Renewable Energy' %}selected{% endif %}>Electrical</option>
-        <option value="Mechanical & Robotics" {% if category_filter == 'Mechanical & Robotics' %}selected{% endif %}>Mechanical</option>
-        <option value="AI & Software Engineering" {% if category_filter == 'AI & Software Engineering' %}selected{% endif %}>Software &amp; AI</option>
-        <option value="Civil & Structural Engineering" {% if category_filter == 'Civil & Structural Engineering' %}selected{% endif %}>Civil &amp; Structural</option>
-    </select>
-    <input type="text" name="q" value="{{ search_query }}" placeholder="Search engineers by skill, city, or specialty...">
-    <button type="submit">Search</button>
+      <select name="category">
+        <option value="All">All Disciplines</option>
+        <option value="Electrical & Renewable Energy">Electrical</option>
+        <option value="Mechanical & Robotics">Mechanical</option>
+        <option value="AI & Software Engineering">Software &amp; AI</option>
+        <option value="Civil & Structural Engineering">Civil &amp; Structural</option>
+      </select>
+      <input type="text" name="q" value="{{ search_query }}" placeholder="Search engineers by skill, city, or specialty...">
+      <button type="submit">Search</button>
     </form>
-
     <div class="nav-actions">
-    {% if user_name %}
-        <span style="font-size: 13px; color: #cbd5e1;">Hello, <strong>{{ user_name }}</strong></span>
-        <a href="/logout" class="nav-link">Sign Out</a>
-    {% else %}
-        <button type="button" onclick="openModal('authModal')" class="nav-link">Sign In / Account</button>
-    {% endif %}
-    <button type="button" onclick="openModal('engineerModal')" class="nav-cta">Join as Engineer</button>
+      {% if user_name %}
+        <span style="font-size:13px;">Hi, <strong>{{ user_name }}</strong></span>
+        <a href="/logout" class="btn-dark">Sign Out</a>
+      {% else %}
+        <button type="button" onclick="openModal('authModal')" class="btn-dark">Sign In / Account</button>
+      {% endif %}
+      <button type="button" onclick="openModal('engineerModal')" class="btn-blue">Join as Engineer</button>
     </div>
-</header>
-
-<nav class="subnav">
+  </header>
+  <nav class="subnav">
     <a href="/?category=All" class="{% if category_filter == 'All' %}active{% endif %}">All Specialists</a>
+    <a href="/?category=Electrical+%26+Renewable+Energy" class="{% if category_filter == 'Electrical & Renewable Energy' %}active{% endif %}">Electrical &amp; Solar</a>
+    <a href="/?category=Mechanical+%26+Robotics" class="{% if category_filter == 'Mechanical & Robotics' %}active{% endif %}">Mechanical &amp; Robotics</a>
+    <a href="/?category=AI+%26+Software+Engineering" class="{% if category_filter == 'AI & Software Engineering' %}active{% endif %}">AI &amp; Software</a>
+    <a href="/?category=Civil+%26+Structural+Engineering" class="{% if category_filter == 'Civil & Structural Engineering' %}active{% endif %}">Civil &amp; Structural</a>
+  </nav>
+
+  <section class="hero">
+    <h1>Hire Verified Engineers &amp; Solve Real Technical Problems</h1>
+    <p>Upload a video or photo clip of your engineering challenge to receive direct quotes from vetted specialists, or list your verified engineer profile.</p>
+    <div class="hero-btns">
+      <button type="button" onclick="openModal('problemModal')" class="btn-amber">Post a Technical Problem Clip</button>
+      <button type="button" onclick="openModal('engineerModal')" class="btn-blue" style="padding:10px 18px; font-size:14px;">List Your Engineering Profile</button>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="sec-head">
+      <h2>Active Customer Engineering Requests</h2>
+      <button type="button" onclick="openModal('problemModal')" class="btn-blue">+ Post Problem Clip</button>
+    </div>
+
+    {% if problems %}
+      <div class="grid">
+        {% for item in problems %}
+          <div class="card">
+            <div>
+              <div class="role">{{ item['category'] }}</div>
+              <h3>{{ item['title'] }}</h3>
+              <div class="meta">Posted by <strong>{{ item['customer_name'] }}</strong></div>
+              <p style="font-size:13px;">{{ item['description'] }}</p>
+              {% if item['clip_path'] %}
+                {% if item['clip_path'].lower().endswith(('.mp4', '.webm', '.mov', '.ogg')) %}
+                  <video class="clip" controls><source src="{{ item['clip_path'] }}"></video>
+                {% else %}
+                  <img class="clip" src="{{ item['clip_path'] }}" alt="Problem Clip">
+                {% endif %}
+              {% endif %}
+            </div>
+            <div class="card-foot">
+              <strong>{% if item['budget'] %}${{ item['budget'] }} budget{% else %}Open Quote{% endif %}</strong>
+              <a href="mailto:{{ item['contact'] }}" class="hire-btn">Send Proposal</a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="empty">
+        <p style="margin-bottom:10px;">No problem clips posted yet. Have a circuit, CAD, software, or structural challenge?</p>
+        <button type="button" onclick="openModal('problemModal')" class="btn-amber">Post the First Problem Clip</button>
+      </div>
+    {% endif %}
+
+    <div class="sec-head">
+      <h2>Registered Engineering Specialists ({{ engineers|length }})</h2>
+    </div>
+
+    {% if engineers %}
+      <div class="grid">
+        {% for eng in engineers %}
+          <div class="card">
+            <div>
+              <div class="prof-top">
+                {% if eng['avatar_url'] %}
+                  <img src="{{ eng['avatar_url'] }}" class="avatar" alt="{{ eng['name'] }}">
+                {% else %}
+                  <div class="avatar">{{ eng['name'][:1]|upper }}</div>
+                {% endif %}
+                <div>
+                  <h3>{{ eng['name'] }}</h3>
+                  <span class="v-badge">✓ Verified Profile</span>
+                </div>
+              </div>
+              <div class="role">{{ eng['role'] }}</div>
+              <div class="meta">{{ eng['location'] }} • {{ eng['experience'] }} yrs exp</div>
+              <div class="skills">
+                {% for skill in eng['skills'].split(',') %}
+                  <span class="pill">{{ skill.strip() }}</span>
+                {% endfor %}
+              </div>
+              {% if eng['linkedin_url'] %}
+                <p style="margin-bottom:10px;"><a href="{{ eng['linkedin_url'] }}" target="_blank" style="font-size:12px; color:#2563eb;">View Credentials &rarr;</a></p>
+              {% endif %}
+            </div>
+            <div class="card-foot">
+              <strong>${{ eng['rate'] }} / hr</strong>
+              <a href="mailto:{{ eng['contact'] }}" class="hire-btn">Hire Specialist</a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="empty">
+        <p style="margin-bottom:10px;">No specialists listed yet. Register your verified profile to appear first.</p>
+        <button type="button" onclick="openModal('engineerModal')" class="btn-blue">Register as an Engineer</button>
+      </div>
+    {% endif %}
+  </main>
+  <div id="authModal" class="modal" onclick="if(event.target===this) closeModal('authModal')">
+    <div class="modal-box">
+      <div class="modal-top"><h3>Create Account / Sign In</h3><button type="button" onclick="closeModal('authModal')" style="border:none;background:none;font-size:20px;cursor:pointer;">✕</button></div>
+      <form action="/signup" method="POST" style="margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid #e2e8f0;">
+        <div class="field"><label>Full Name</label><input type="text" name="full_name" required></div>
+        <div class="field"><label>Email</label><input type="email" name="email" required></div>
+        <div class="field"><label>Password</label><input type="password" name="password" required></div>
+        <div class="field"><label>Role</label><select name="account_type"><option value="engineer">Engineer</option><option value="customer">Customer</option></select></div>
+        <button type="submit" class="btn-blue" style="width:100%;">Create Free Account</button>
+      </form>
+      <form action="/login" method="POST">
+        <div class="field"><label>Email</label><input type="email" name="email" required></div>
+        <div class="field"><label>Password</label><input type="password" name="password" required></div>
+        <button type="submit" class="btn-amber" style="width:100%;">Sign In</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="engineerModal" class="modal" onclick="if(event.target===this) closeModal('engineerModal')">
+    <div class="modal-box">
+      <div class="modal-top"><h3>Register as an Engineer</h3><button type="button" onclick="closeModal('engineerModal')" style="border:none;background:none;font-size:20px;cursor:pointer;">✕</button></div>
+      <form action="/register-engineer" method="POST" enctype="multipart/form-data">
+        <div class="field"><label>Full Name &amp; Title</label><input type="text" name="name" placeholder="Eng. Prince Omukama Noel" required></div>
+        <div class="field"><label>Profile Photo</label><input type="file" name="avatar" accept="image/*"></div>
+        <div class="field"><label>Discipline</label><select name="role"><option value="Electrical & Renewable Energy">Electrical &amp; Renewable Energy</option><option value="Mechanical & Robotics">Mechanical &amp; Robotics</option><option value="AI & Software Engineering">AI &amp; Software Engineering</option><option value="Civil & Structural Engineering">Civil &amp; Structural Engineering</option></select></div>
+        <div class="field"><label>City &amp; Country</label><input type="text" name="location" placeholder="Dar es Salaam, Tanzania" required></div>
+        <div class="field"><label>Years Experience</label><input type="number" name="experience" value="4" required></div>
+        <div class="field"><label>Hourly Rate ($ USD)</label><input type="number" name="rate" value="45" required></div>
+        <div class="field"><label>Skills (comma-separated)</label><input type="text" name="skills" placeholder="Python, Solar, CAD" required></div>
+        <div class="field"><label>LinkedIn or GitHub URL</label><input type="url" name="linkedin_url" placeholder="https://github.com"></div>
+        <div class="field"><label>Contact Email</label><input type="email" name="contact" required></div>
+        <button type="submit" class="btn-blue" style="width:100%;">Publish Specialist Profile</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="problemModal" class="modal" onclick="if(event.target===this) closeModal('problemModal')">
+    <div class="modal-box">
+      <div class="modal-top"><h3>Post a Problem Clip</h3><button type="button" onclick="closeModal('problemModal')" style="border:none;background:none;font-size:20px;cursor:pointer;">✕</button></div>
+      <form action="/submit-problem" method="POST" enctype="multipart/form-data">
+        <div class="field"><label>Your Name</label><input type="text" name="customer_name" required></div>
+        <div class="field"><label>Category</label><select name="category"><option value="Electrical & Renewable Energy">Electrical &amp; Renewable Energy</option><option value="Mechanical & Robotics">Mechanical &amp; Robotics</option><option value="AI & Software Engineering">AI &amp; Software Engineering</option><option value="Civil & Structural Engineering">Civil &amp; Structural Engineering</option></select></div>
+        <div class="field"><label>Problem Title</label><input type="text" name="title" required></div>
+        <div class="field"><label>Description</label><textarea name="description" rows="3" required></textarea></div>
+        <div class="field"><label>Video or Photo Clip</label><input type="file" name="clip" accept="video/*,image/*"></div>
+        <div class="field"><label>Estimated Budget ($ USD)</label><input type="number" name="budget" value="100"></div>
+        <div class="field"><label>Contact Email</label><input type="email" name="contact" required></div>
+        <button type="submit" class="btn-amber" style="width:100%;">Publish Problem Request</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 <strong>EngiLink AI</strong> — Global Engineering Specialist Network. Founded by <strong>Prince Omukama Noel</strong> (Prince Tech Pro 0101) • <a href="https://github.com" target="_blank">GitHub</a></p>
+  </footer>
+</body>
+</html>
