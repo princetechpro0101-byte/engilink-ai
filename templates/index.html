@@ -11,7 +11,7 @@
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "EngiLink AI",
-    "url": "https://engi-link-pro.onrender.com",
+    "url": "https://onrender.com",
     "author": {
       "@type": "Person",
       "name": "Prince Omukama Noel",
@@ -52,24 +52,52 @@
     .empty-box { background: #1e293b; border: 1px dashed #475569; border-radius: 14px; padding: 36px; text-align: center; color: #94a3b8; }
     .clip-media { width: 100%; border-radius: 10px; margin-top: 12px; max-height: 220px; object-fit: cover; background: #000; }
 
-    /* Modal Styles */
-    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); z-index: 9999; align-items: center; justify-content: center; padding: 16px; overflow-y: auto; }
-    .modal-overlay.active { display: flex; }
-    .modal-box { background: #ffffff; color: #1e293b; width: 100%; max-width: 480px; border-radius: 16px; padding: 24px; box-shadow: 0 20px 25px rgba(0,0,0,0.4); }
+    .modal-overlay {
+      display: none;
+      pointer-events: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 23, 42, 0.85);
+      z-index: 9999;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 30px 16px;
+      overflow-y: auto;
+    }
+    .modal-overlay.active {
+      display: flex;
+      pointer-events: auto;
+    }
+    .modal-box {
+      background: #ffffff;
+      color: #1e293b;
+      width: 100%;
+      max-width: 480px;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 20px 25px rgba(0,0,0,0.4);
+      margin-bottom: 30px;
+    }
     .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
     .modal-header h3 { font-size: 20px; font-weight: 800; }
-    .close-btn { background: none; border: none; font-size: 22px; cursor: pointer; color: #64748b; }
+    .close-btn { background: none; border: none; font-size: 24px; cursor: pointer; color: #64748b; padding: 4px 8px; }
     .form-group { margin-bottom: 14px; }
     .form-group label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 5px; color: #334155; }
-    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 11px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 11px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; color: #1e293b; background: #ffffff; }
     footer { background: #090d16; color: #94a3b8; text-align: center; padding: 28px 5%; margin-top: 50px; border-top: 1px solid #1e293b; font-size: 14px; }
   </style>
   <script>
     function openModal(id) {
-      document.getElementById(id).classList.add('active');
+      const el = document.getElementById(id);
+      if (el) {
+        el.classList.add('active');
+      }
     }
     function closeModal(id) {
-      document.getElementById(id).classList.remove('active');
+      const el = document.getElementById(id);
+      if (el) {
+        el.classList.remove('active');
+      }
     }
   </script>
 </head>
@@ -163,7 +191,7 @@
   </section>
 
   <!-- MODAL 1: ENGINEER REGISTRATION FORM -->
-  <div id="engineerModal" class="modal-overlay">
+  <div id="engineerModal" class="modal-overlay" onclick="if(event.target === this) closeModal('engineerModal')">
     <div class="modal-box">
       <div class="modal-header">
         <h3>Register as an Engineer</h3>
@@ -172,11 +200,6 @@
       <form action="/register-engineer" method="POST">
         <div class="form-group">
           <label>Full Name &amp; Title</label>
-          <input type="text" name="name" placeholder="e.g., Eng. Juma Ally" required>
+          <input type="text" name="name" placeholder="e.g., Eng. Prince Omukama Noel" required>
         </div>
         <div class="form-group">
-          <label>Engineering Discipline</label>
-          <select name="role" required>
-            <option value="Electrical & Renewable Energy">Electrical &amp; Renewable Energy</option>
-            <option value="Mechanical & Robotics">Mechanical &amp; Robotics</option>
-            <option value="AI & Software Engineering">AI &amp; Software Engineering</option>
