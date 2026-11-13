@@ -1,41 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="author" content="Prince Omukama Noel">
-    <meta name="google-site-verification" content="3tnwrVSai9Bf6vK3lCsq0T48Xs1h2ENGOa6Dm3FZsqg" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EngiLink AI — Global Engineering Specialist Network</title>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        body { background: #0f172a; color: #f8fafc; line-height: 1.6; }
-        header { background: #1e293b; padding: 1.2rem 2rem; border-bottom: 1px solid #334155; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.4rem; font-weight: 800; color: #38bdf8; }
-        .logo span { color: #f8fafc; }
-        .hero { max-width: 850px; margin: 3rem auto 2rem; padding: 0 1.5rem; text-align: center; }
-        .hero h1 { font-size: 2.4rem; margin-bottom: 0.8rem; }
-        .hero p { color: #94a3b8; font-size: 1.1rem; margin-bottom: 2rem; }
-        .ai-box { background: #1e293b; border: 1px solid #38bdf8; border-radius: 12px; padding: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-        .input-group { display: flex; gap: 0.8rem; flex-wrap: wrap; }
-        input[type="text"] { flex: 1; min-width: 260px; padding: 0.9rem 1.2rem; border-radius: 8px; border: 1px solid #475569; background: #0f172a; color: #fff; font-size: 1rem; }
-        input[type="text"]:focus { outline: none; border-color: #38bdf8; }
-        button { background: #38bdf8; color: #0f172a; font-weight: 700; border: none; padding: 0.9rem 1.6rem; border-radius: 8px; cursor: pointer; font-size: 1rem; transition: 0.2s; }
-        button:hover { background: #7dd3fc; }
-        #ai-response { margin-top: 1.2rem; padding: 1rem; background: #0f172a; border-left: 4px solid #38bdf8; border-radius: 6px; text-align: left; display: none; color: #e2e8f0; }
-        .container { max-width: 1100px; margin: 2rem auto 4rem; padding: 0 1.5rem; }
-        .section-title { font-size: 1.3rem; margin-bottom: 1.2rem; color: #cbd5e1; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 1.5rem; }
-        .card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s; }
-        .card:hover { transform: translateY(-4px); border-color: #38bdf8; }
-        .badge { display: inline-block; background: rgba(56, 189, 248, 0.15); color: #38bdf8; padding: 0.25rem 0.7rem; border-radius: 999px; font-size: 0.82rem; font-weight: 600; margin-bottom: 0.8rem; }
-        .card h3 { font-size: 1.2rem; margin-bottom: 0.3rem; }
-        .meta { font-size: 0.88rem; color: #94a3b8; margin-bottom: 0.9rem; }
-        .bio { font-size: 0.95rem; color: #cbd5e1; margin-bottom: 1.2rem; }
-        .card-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #334155; padding-top: 1rem; }
-        .rate { font-weight: 700; color: #4ade80; font-size: 1.05rem; }
-        .hire-btn { background: transparent; border: 1px solid #38bdf8; color: #38bdf8; padding: 0.45rem 1rem; font-size: 0.9rem; }
-        .hire-btn:hover { background: #38bdf8; color: #0f172a; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Prince Omukama Noel">
+  <meta name="google-site-verification" content="3tnwrVSai9Bf6vK3lCsq0T48Xs1h2ENGOa6Dm3FZsqg" />
+  <title>EngiLink AI — Global Engineering Specialist Network</title>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -47,101 +17,166 @@
       "name": "Prince Omukama Noel",
       "alternateName": "Prince Tech Pro 0101",
       "sameAs": [
-        "https://github.com/princetechpro0101-byte"
+        "https://github.com"
       ]
     }
   }
   </script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background: #0f172a; color: #f8fafc; line-height: 1.6; }
+    header { background: #1e293b; padding: 18px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; flex-wrap: wrap; gap: 12px; }
+    .logo { font-size: 22px; font-weight: 800; color: #38bdf8; }
+    .logo span { color: #ffffff; }
+    .nav-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+    .hero { text-align: center; padding: 65px 5% 45px; max-width: 850px; margin: 0 auto; }
+    .hero h1 { font-size: 38px; font-weight: 800; margin-bottom: 14px; color: #ffffff; }
+    .hero p { font-size: 18px; color: #94a3b8; margin-bottom: 28px; }
+    .hero-actions { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+    .btn-primary { background: #2563eb; color: #ffffff; border: none; padding: 13px 24px; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; }
+    .btn-primary:hover { background: #1d4ed8; }
+    .btn-green { background: #16a34a; color: #ffffff; border: none; padding: 13px 24px; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; }
+    .btn-green:hover { background: #15803d; }
+    .section-wrap { padding: 35px 5% 50px; max-width: 1200px; margin: 0 auto; }
+    .section-wrap h2 { font-size: 25px; margin-bottom: 20px; color: #e2e8f0; display: flex; align-items: center; gap: 10px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
+    .card { background: #1e293b; border: 1px solid #334155; border-radius: 14px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; }
+    .card h3 { font-size: 19px; color: #ffffff; margin-bottom: 4px; }
+    .role { color: #38bdf8; font-size: 14px; font-weight: 600; margin-bottom: 10px; }
+    .meta { font-size: 13px; color: #94a3b8; margin-bottom: 14px; }
+    .skills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+    .tag { background: #0f172a; color: #cbd5e1; padding: 4px 10px; border-radius: 6px; font-size: 12px; border: 1px solid #334155; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #334155; padding-top: 14px; margin-top: 12px; }
+    .rate { font-weight: 700; color: #4ade80; font-size: 15px; }
+    .btn-connect { background: #2563eb; color: #ffffff; border: none; padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: none; }
+    .empty-box { background: #1e293b; border: 1px dashed #475569; border-radius: 14px; padding: 36px; text-align: center; color: #94a3b8; }
+    .clip-media { width: 100%; border-radius: 10px; margin-top: 12px; max-height: 220px; object-fit: cover; background: #000; }
+
+    /* Modal Styles */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); z-index: 9999; align-items: center; justify-content: center; padding: 16px; overflow-y: auto; }
+    .modal-overlay.active { display: flex; }
+    .modal-box { background: #ffffff; color: #1e293b; width: 100%; max-width: 480px; border-radius: 16px; padding: 24px; box-shadow: 0 20px 25px rgba(0,0,0,0.4); }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .modal-header h3 { font-size: 20px; font-weight: 800; }
+    .close-btn { background: none; border: none; font-size: 22px; cursor: pointer; color: #64748b; }
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 5px; color: #334155; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 11px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; }
+    footer { background: #090d16; color: #94a3b8; text-align: center; padding: 28px 5%; margin-top: 50px; border-top: 1px solid #1e293b; font-size: 14px; }
+  </style>
+  <script>
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+  </script>
 </head>
 <body>
 
-<header>
-    <div class="logo">Engi<span>Link AI</span></div>
-    <div style="color: #94a3b8; font-size: 0.9rem;">Global Engineering Network</div>
-</header>
-
-<section class="hero">
-    <h1>Find Any Engineering Specialist Worldwide</h1>
-    <p>Describe your technical challenge or project. Our AI analyzes your needs and connects you directly with verified engineers.</p>
-
-    <div class="ai-box">
-        <div class="input-group">
-            <input type="text" id="problemInput" placeholder="e.g. I need a solar microgrid for a commercial building or a Python web app..." />
-            <button onclick="findSpecialist()">Ask AI Matcher</button>
-        </div>
-        <div id="ai-response"></div>
+  <header>
+    <div class="logo">EngiLink <span>AI</span></div>
+    <div class="nav-btns">
+      <button type="button" onclick="openModal('engineerModal')" class="btn-green" style="padding: 9px 16px; font-size: 14px;">+ Join as Engineer</button>
+      <button type="button" onclick="openModal('problemModal')" class="btn-primary" style="padding: 9px 16px; font-size: 14px;">+ Post Problem Clip</button>
     </div>
-</section>
+  </header>
 
-<section class="container">
-    <h2 class="section-title" id="resultsHeading">Available Global Specialists</h2>
-    <div class="grid" id="engineersGrid">
-        {% for eng in engineers %}
-        <div class="card">
+  <section class="hero">
+    <h1>Real Engineers. Real Technical Solutions.</h1>
+    <p>Upload a video or photo clip of your engineering problem to get help, or register your specialist profile to connect with global clients.</p>
+    <div class="hero-actions">
+      <button type="button" onclick="openModal('problemModal')" class="btn-primary">📹 Post an Engineering Problem</button>
+      <button type="button" onclick="openModal('engineerModal')" class="btn-green">🛠️ Sign Up as an Engineer</button>
+    </div>
+  </section>
+
+  <!-- LIVE CUSTOMER PROBLEM CLIPS FEED -->
+  <section class="section-wrap">
+    <h2>📹 Live Customer Engineering Problems</h2>
+    {% if problems %}
+      <div class="grid">
+        {% for item in problems %}
+          <div class="card">
             <div>
-                <span class="badge">{{ eng.specialty }}</span>
-                <h3>{{ eng.name }}</h3>
-                <div class="meta">📍 {{ eng.location }} • ⭐ {{ eng.rating }} • {{ eng.experience }}</div>
-                <p class="bio">{{ eng.bio }}</p>
+              <div class="role">{{ item['category'] }}</div>
+              <h3>{{ item['title'] }}</h3>
+              <div class="meta">Posted by {{ item['customer_name'] }}</div>
+              <p style="font-size: 14px; color: #cbd5e1;">{{ item['description'] }}</p>
+              
+              {% if item['clip_path'] %}
+                {% if item['clip_path'].lower().endswith(('.mp4', '.webm', '.mov', '.ogg')) %}
+                  <video class="clip-media" controls>
+                    <source src="{{ item['clip_path'] }}">
+                  </video>
+                {% else %}
+                  <img class="clip-media" src="{{ item['clip_path'] }}" alt="Engineering Problem Clip">
+                {% endif %}
+              {% endif %}
             </div>
             <div class="card-footer">
-                <span class="rate">{{ eng.rate }}</span>
-                <button class="hire-btn" onclick="alert('Consultation request sent to {{ eng.name }}!')">Connect</button>
+              <span class="meta" style="margin:0;">Direct Contact:</span>
+              <a href="mailto:{{ item['contact'] }}" class="btn-connect">Solve This</a>
             </div>
-        </div>
+          </div>
         {% endfor %}
-    </div>
-</section>
+      </div>
+    {% else %}
+      <div class="empty-box">
+        <p style="margin-bottom: 12px;">No problem clips posted yet. Have a circuit, CAD, software, or structural issue?</p>
+        <button type="button" onclick="openModal('problemModal')" class="btn-primary">Post the First Problem Clip</button>
+      </div>
+    {% endif %}
+  </section>
 
-<script>
-async function findSpecialist() {
-    const query = document.getElementById("problemInput").value;
-    const responseBox = document.getElementById("ai-response");
-    const grid = document.getElementById("engineersGrid");
-    const heading = document.getElementById("resultsHeading");
-
-    responseBox.style.display = "block";
-    responseBox.innerHTML = "Analyzing project requirements...";
-
-    const res = await fetch("/api/match", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query })
-    });
-    const data = await res.json();
-
-    responseBox.innerHTML = data.ai_summary;
-    heading.innerText = `Recommended Specialists (${data.matches.length})`;
-
-    grid.innerHTML = data.matches.map(eng => `
-        <div class="card">
+  <!-- LIVE REGISTERED ENGINEERS DIRECTORY -->
+  <section class="section-wrap">
+    <h2>🛠️ Registered Engineering Specialists</h2>
+    {% if engineers %}
+      <div class="grid">
+        {% for eng in engineers %}
+          <div class="card">
             <div>
-                <span class="badge">${eng.specialty}</span>
-                <h3>${eng.name}</h3>
-                <div class="meta">📍 ${eng.location} • ⭐ ${eng.rating} • ${eng.experience}</div>
-                <p class="bio">${eng.bio}</p>
+              <h3>{{ eng['name'] }}</h3>
+              <div class="role">{{ eng['role'] }}</div>
+              <div class="meta">📍 {{ eng['location'] }} • {{ eng['experience'] }} yrs exp</div>
+              <div class="skills">
+                {% for skill in eng['skills'].split(',') %}
+                  <span class="tag">{{ skill.strip() }}</span>
+                {% endfor %}
+              </div>
             </div>
             <div class="card-footer">
-                <span class="rate">${eng.rate}</span>
-                <button class="hire-btn" onclick="alert('Consultation request sent to ${eng.name}!')">Connect</button>
+              <span class="rate">${{ eng['rate'] }} / hr</span>
+              <a href="mailto:{{ eng['contact'] }}" class="btn-connect">Hire / Connect</a>
             </div>
-        </div>
-    `).join("");
-}
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="empty-box">
+        <p style="margin-bottom: 12px;">No engineers registered yet. Be the first verified specialist on EngiLink AI!</p>
+        <button type="button" onclick="openModal('engineerModal')" class="btn-green">Create Your Engineer Profile</button>
+      </div>
+    {% endif %}
+  </section>
 
-document.getElementById("problemInput").addEventListener("keypress", function(e) {
-    if (e.key === "Enter") findSpecialist();
-});
-</script>
-  <footer style="background:#090d16; color:#94a3b8; text-align:center; padding:28px 5%; margin-top:50px; border-top:1px solid #1e293b; font-size:14px;">
-    <p>&copy; 2026 <strong style="color:#ffffff;">EngiLink AI</strong> — Global Engineering Specialist Network. Created by <strong style="color:#38bdf8;">Prince Omukama Noel</strong>.</p>
-  </footer>
-  <footer style="background:#090d16; color:#94a3b8; text-align:center; padding:28px 5%; margin-top:50px; border-top:1px solid #1e293b; font-size:14px;">
-    <p>
-      &copy; 2026 <strong style="color:#ffffff;">EngiLink AI</strong> — Global Engineering Specialist Network.<br>
-      Created by <strong style="color:#38bdf8;">Prince Omukama Noel</strong> (Prince Tech Pro 0101) • 
-      <a href="https://github.com/princetechpro0101-byte" target="_blank" style="color:#38bdf8; text-decoration:underline;">GitHub Profile</a>
-    </p>
-  </footer>
-</body>
-</html>
+  <!-- MODAL 1: ENGINEER REGISTRATION FORM -->
+  <div id="engineerModal" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>Register as an Engineer</h3>
+        <button type="button" class="close-btn" onclick="closeModal('engineerModal')">✕</button>
+      </div>
+      <form action="/register-engineer" method="POST">
+        <div class="form-group">
+          <label>Full Name &amp; Title</label>
+          <input type="text" name="name" placeholder="e.g., Eng. Juma Ally" required>
+        </div>
+        <div class="form-group">
+          <label>Engineering Discipline</label>
+          <select name="role" required>
+            <option value="Electrical & Renewable Energy">Electrical &amp; Renewable Energy</option>
+            <option value="Mechanical & Robotics">Mechanical &amp; Robotics</option>
+            <option value="AI & Software Engineering">AI &amp; Software Engineering</option>
