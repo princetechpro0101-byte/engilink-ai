@@ -58,7 +58,6 @@
   </script>
 </head>
 <body>
-
   <header class="navbar">
     <a href="/" class="brand">EngiLink <span class="badge">Verified</span></a>
     <form class="search-form" action="/" method="GET">
@@ -82,7 +81,6 @@
       <button type="button" onclick="openModal('engineerModal')" class="btn-blue">Join as Engineer</button>
     </div>
   </header>
-
   <nav class="subnav">
     <a href="/?category=All" class="{% if category_filter == 'All' %}active{% endif %}">All Specialists</a>
     <a href="/?category=Electrical+%26+Renewable+Energy" class="{% if category_filter == 'Electrical & Renewable Energy' %}active{% endif %}">Electrical &amp; Solar</a>
@@ -133,6 +131,55 @@
     {% else %}
       <div class="empty">
         <p style="margin-bottom:10px;">No problem clips posted yet. Have a circuit, CAD, software, or structural challenge?</p>
+        <button type="button" onclick="openModal('problemModal')" class="btn-amber">Post the First Problem Clip</button>
+      </div>
+    {% endif %}
+
+    <div class="sec-head">
+      <h2>Registered Engineering Specialists ({{ engineers|length }})</h2>
+    </div>
+
+    {% if engineers %}
+      <div class="grid">
+        {% for eng in engineers %}
+          <div class="card">
+            <div>
+              <div class="prof-top">
+                {% if eng['avatar_url'] %}
+                  <img src="{{ eng['avatar_url'] }}" class="avatar" alt="{{ eng['name'] }}">
+                {% else %}
+                  <div class="avatar">{{ eng['name'][:1]|upper }}</div>
+                {% endif %}
+                <div>
+                  <h3>{{ eng['name'] }}</h3>
+                  <span class="v-badge">✓ Verified Profile</span>
+                </div>
+              </div>
+              <div class="role">{{ eng['role'] }}</div>
+              <div class="meta">{{ eng['location'] }} • {{ eng['experience'] }} yrs exp</div>
+              <div class="skills">
+                {% for skill in eng['skills'].split(',') %}
+                  <span class="pill">{{ skill.strip() }}</span>
+                {% endfor %}
+              </div>
+              {% if eng['linkedin_url'] %}
+                <p style="margin-bottom:10px;"><a href="{{ eng['linkedin_url'] }}" target="_blank" style="font-size:12px; color:#2563eb;">View Credentials &rarr;</a></p>
+              {% endif %}
+            </div>
+            <div class="card-foot">
+              <strong>${{ eng['rate'] }} / hr</strong>
+              <a href="mailto:{{ eng['contact'] }}" class="hire-btn">Hire Specialist</a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="empty">
+        <p style="margin-bottom:10px;">No specialists listed yet. Register your verified profile to appear first.</p>
+        <button type="button" onclick="openModal('engineerModal')" class="btn-blue">Register as an Engineer</button>
+      </div>
+    {% endif %}
+  </main>
   <div id="authModal" class="modal" onclick="if(event.target===this) closeModal('authModal')">
     <div class="modal-box">
       <div class="modal-top"><h3>Create Account / Sign In</h3><button type="button" onclick="closeModal('authModal')" style="border:none;background:none;font-size:20px;cursor:pointer;">✕</button></div>
